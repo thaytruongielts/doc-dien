@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài Giảng Tương Tác: Chiến Lược Bài Đọc Điền Từ Lớp 10</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .lesson-container {
+            background-color: #ffffff;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem;
+            width: 100%;
+            max-width: 900px;
+            margin-top: 20px;
+        }
+        .slide-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .slide-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4a5568;
+            margin-bottom: 1.5rem;
+        }
+        .interactive-section {
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-top: 1.5rem;
+            line-height: 1.8;
+        }
+        .option-label {
+            display: block;
+            background-color: #edf2f7;
+            padding: 0.8rem 1.25rem;
+            margin-bottom: 0.75rem;
+            border-radius: 0.75rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            font-size: 1rem;
+            color: #4a5568;
+            border: 1px solid #e2e8f0;
+        }
+        .option-label:hover {
+            background-color: #e2e8f0;
+            transform: translateY(-2px);
+        }
+        .option-input:checked + .option-label {
+            background-color: #63b3ed;
+            color: white;
+            border-color: #4299e1;
+            box-shadow: 0 4px 6px rgba(66, 153, 225, 0.3);
+        }
+        .option-input {
+            display: none;
+        }
+        .button {
+            padding: 0.8rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover:enabled {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .quiz-check-button {
+            background-color: #dc2626;
+            color: white;
+        }
+        .quiz-check-button:hover:enabled {
+            background-color: #b91c1c;
+        }
+        .lesson-nav-button {
+            background-color: #48bb78;
+            color: white;
+        }
+        .lesson-nav-button:hover:enabled {
+            background-color: #38a169;
+        }
+        .feedback-message {
+            margin-top: 1rem;
+            padding: 0.8rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-align: center;
+            font-size: 1rem;
+        }
+        .feedback-correct {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .feedback-incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .final-message {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2d3748;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .restart-button {
+            background-color: #f6ad55;
+            color: white;
+            margin-top: 1rem;
+        }
+        .restart-button:hover:enabled {
+            background-color: #ed8936;
+        }
+    </style>
+</head>
+<body>
+    <div class="lesson-container">
+        <h1 class="text-3xl font-extrabold text-center text-gray-800 mb-6">Bài Giảng Tương Tác: Luyện Bài Đọc Điền Từ</h1>
+
+        <div id="lesson-slides">
+            <!-- Slide 1: Giới thiệu -->
+            <div id="slide-0" class="lesson-slide">
+                <h2 class="slide-title">Slide 1: Giới thiệu bài đọc điền từ (Cloze Test)</h2>
+                <p class="slide-content">Chào mừng các em đến với bài giảng về chiến lược làm bài đọc điền từ. Đây là dạng bài kiểm tra toàn diện về ngữ pháp, từ vựng và khả năng đọc hiểu ngữ cảnh của các em.</p>
+                <p class="slide-content">Bài giảng này sẽ giúp các em nắm vững các mẹo làm bài và tự tin hơn trong kỳ thi sắp tới.</p>
+            </div>
+
+            <!-- Slide 2: Các bước làm bài -->
+            <div id="slide-1" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 2: Các bước làm bài hiệu quả</h2>
+                <ol class="list-decimal list-inside slide-content">
+                    <li>**Đọc lướt toàn bài:** Đọc nhanh toàn bộ đoạn văn một lần để nắm được ý chính và chủ đề.</li>
+                    <li>**Phân tích từ loại:** Với mỗi chỗ trống, hãy xem xét từ loại cần điền (danh từ, động từ, tính từ, trạng từ, giới từ, liên từ...).</li>
+                    <li>**Áp dụng ngữ pháp:** Dựa vào ngữ pháp của câu để chọn đáp án phù hợp. (Ví dụ: sau giới từ là V-ing hoặc danh từ).</li>
+                    <li>**Kiểm tra từ vựng:** Nếu ngữ pháp không rõ ràng, hãy dựa vào ý nghĩa của từ và ngữ cảnh của câu.</li>
+                    <li>**Đọc lại và kiểm tra:** Sau khi điền xong, đọc lại toàn bộ đoạn văn một lần nữa để đảm bảo các từ đã điền hợp lý về cả ngữ pháp và ngữ nghĩa.</li>
+                </ol>
+            </div>
+
+            <!-- Slide 3: Lỗi thường gặp -->
+            <div id="slide-2" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 3: Các lỗi thường gặp và cách tránh</h2>
+                <ul class="list-disc list-inside slide-content">
+                    <li>**Lỗi 1: Điền từ mà không đọc cả câu.** Các em cần đọc cả câu chứa chỗ trống và thậm chí cả câu trước, câu sau để hiểu rõ ngữ cảnh.</li>
+                    <li>**Lỗi 2: Bỏ qua từ loại.** Nhìn vào cấu trúc câu, sau 'a/an/the' thường là danh từ, sau 'be' là tính từ hoặc V-ing/V3.</li>
+                    <li>**Lỗi 3: Không chú ý đến giới từ.** Một số động từ, tính từ đi kèm với giới từ cố định. (Ví dụ: `interested in`, `good at`).</li>
+                    <li>**Lỗi 4: Không để ý đến sự hòa hợp chủ ngữ và động từ.** Chủ ngữ số ít thì động từ chia 's'/'es', chủ ngữ số nhiều thì động từ giữ nguyên.</li>
+                </ul>
+            </div>
+            
+            <!-- Slide 4: Ví dụ thực hành -->
+            <div id="slide-3" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 4: Ví dụ thực hành</h2>
+                <p class="slide-content">**Đoạn văn:**</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        My friend Sarah is a very talented artist. She paints beautiful pictures of landscapes and portraits of people. She has an exhibition of her work at a local gallery next month, and I'm very excited to go and (1) ____ it.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **1.** A. see &emsp; B. look &emsp; C. watch
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 1.</p>
+                    <div id="quiz-1-options" class="mb-4">
+                        <input type="radio" name="quiz1" id="q1o1" value="A" class="option-input"><label for="q1o1" class="option-label">A. see</label>
+                        <input type="radio" name="quiz1" id="q1o2" value="B" class="option-input"><label for="q1o2" class="option-label">B. look</label>
+                        <input type="radio" name="quiz1" id="q1o3" value="C" class="option-input"><label for="q1o3" class="option-label">C. watch</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="1" data-answer="A">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-1"></div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Giải thích ví dụ -->
+            <div id="slide-4" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 5: Giải thích</h2>
+                <p class="slide-content">**Đáp án đúng là A. see.**</p>
+                <p class="slide-content">Chúng ta dùng `see an exhibition` để chỉ việc đi xem một buổi triển lãm. `Look at` và `watch` không phù hợp trong ngữ cảnh này.</p>
+            </div>
+            
+            <!-- Slides 6-24: 5 bài luyện tập, mỗi bài 4 câu -->
+            
+            <!-- Slide 6: Bài luyện tập 1, Câu 1 -->
+            <div id="slide-5" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 6: Bài luyện tập 1</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The city of London is a very old and beautiful city. It is the capital of England and has a population of over 9 million people. London is famous for its history, its museums and its parks. One of the most famous landmarks is the Tower of London, which was (1) ____ in the 11th century by William the Conqueror.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **1.** A. builds &emsp; B. built &emsp; C. build
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 1.</p>
+                    <div id="quiz-2-options" class="mb-4">
+                        <input type="radio" name="quiz2" id="q2o1" value="A" class="option-input"><label for="q2o1" class="option-label">A. builds</label>
+                        <input type="radio" name="quiz2" id="q2o2" value="B" class="option-input"><label for="q2o2" class="option-label">B. built</label>
+                        <input type="radio" name="quiz2" id="q2o3" value="C" class="option-input"><label for="q2o3" class="option-label">C. build</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="2" data-answer="B">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-2"></div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Bài luyện tập 1, Câu 2 -->
+            <div id="slide-6" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 7: Bài luyện tập 1</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The city of London is a very old and beautiful city. It is the capital of England and has a population of over 9 million people. London is famous for its history, its museums and its parks. One of the most famous landmarks is the Tower of London, which was built in the 11th century by William the Conqueror. It has been used as a fortress, a royal palace and a prison, but it is now a very popular (2) ____ attraction.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **2.** A. tourism &emsp; B. tourist &emsp; C. tourists
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 2.</p>
+                    <div id="quiz-3-options" class="mb-4">
+                        <input type="radio" name="quiz3" id="q3o1" value="A" class="option-input"><label for="q3o1" class="option-label">A. tourism</label>
+                        <input type="radio" name="quiz3" id="q3o2" value="B" class="option-input"><label for="q3o2" class="option-label">B. tourist</label>
+                        <input type="radio" name="quiz3" id="q3o3" value="C" class="option-input"><label for="q3o3" class="option-label">C. tourists</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="3" data-answer="B">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-3"></div>
+                </div>
+            </div>
+
+            <!-- Slide 8: Bài luyện tập 1, Câu 3 -->
+            <div id="slide-7" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 8: Bài luyện tập 1</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The city of London is a very old and beautiful city. It is the capital of England and has a population of over 9 million people. London is famous for its history, its museums and its parks. One of the most famous landmarks is the Tower of London, which was built in the 11th century by William the Conqueror. It has been used as a fortress, a royal palace and a prison, but it is now a very popular tourist attraction. Visitors can (3) ____ guided tours and learn about the building's fascinating history.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **3.** A. do &emsp; B. make &emsp; C. take
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 3.</p>
+                    <div id="quiz-4-options" class="mb-4">
+                        <input type="radio" name="quiz4" id="q4o1" value="A" class="option-input"><label for="q4o1" class="option-label">A. do</label>
+                        <input type="radio" name="quiz4" id="q4o2" value="B" class="option-input"><label for="q4o2" class="option-label">B. make</label>
+                        <input type="radio" name="quiz4" id="q4o3" value="C" class="option-input"><label for="q4o3" class="option-label">C. take</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="4" data-answer="C">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-4"></div>
+                </div>
+            </div>
+
+            <!-- Slide 9: Bài luyện tập 1, Câu 4 -->
+            <div id="slide-8" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 9: Bài luyện tập 1</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The city of London is a very old and beautiful city. It is the capital of England and has a population of over 9 million people. London is famous for its history, its museums and its parks. One of the most famous landmarks is the Tower of London, which was built in the 11th century by William the Conqueror. It has been used as a fortress, a royal palace and a prison, but it is now a very popular tourist attraction. Visitors can take guided tours and learn about the building's fascinating history. Although the Tower has a dark and bloody history, it is a very (4) ____ place to visit.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **4.** A. interest &emsp; B. interested &emsp; C. interesting
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 4.</p>
+                    <div id="quiz-5-options" class="mb-4">
+                        <input type="radio" name="quiz5" id="q5o1" value="A" class="option-input"><label for="q5o1" class="option-label">A. interest</label>
+                        <input type="radio" name="quiz5" id="q5o2" value="B" class="option-input"><label for="q5o2" class="option-label">B. interested</label>
+                        <input type="radio" name="quiz5" id="q5o3" value="C" class="option-input"><label for="q5o3" class="option-label">C. interesting</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="5" data-answer="C">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-5"></div>
+                </div>
+            </div>
+
+            <!-- Slide 10: Bài luyện tập 2, Câu 1 -->
+            <div id="slide-9" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 10: Bài luyện tập 2</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The human brain is a marvel of biological engineering. It is composed of billions of neurons that communicate through electrical and chemical signals. The brain is organized into different regions, (1) ____ each area responsible for specific functions.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **1.** A. with &emsp; B. in &emsp; C. on
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 1.</p>
+                    <div id="quiz-6-options" class="mb-4">
+                        <input type="radio" name="quiz6" id="q6o1" value="A" class="option-input"><label for="q6o1" class="option-label">A. with</label>
+                        <input type="radio" name="quiz6" id="q6o2" value="B" class="option-input"><label for="q6o2" class="option-label">B. in</label>
+                        <input type="radio" name="quiz6" id="q6o3" value="C" class="option-input"><label for="q6o3" class="option-label">C. on</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="6" data-answer="A">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-6"></div>
+                </div>
+            </div>
+
+            <!-- Slide 11: Bài luyện tập 2, Câu 2 -->
+            <div id="slide-10" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 11: Bài luyện tập 2</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The human brain is a marvel of biological engineering. It is composed of billions of neurons that communicate through electrical and chemical signals. The brain is organized into different regions, with each area responsible for specific functions. The cerebral cortex is a very important part of the brain that (2) ____ for thought and language, while the cerebellum is responsible for balance and movement.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **2.** A. responsible &emsp; B. responsible for &emsp; C. is responsible
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 2.</p>
+                    <div id="quiz-7-options" class="mb-4">
+                        <input type="radio" name="quiz7" id="q7o1" value="A" class="option-input"><label for="q7o1" class="option-label">A. responsible</label>
+                        <input type="radio" name="quiz7" id="q7o2" value="B" class="option-input"><label for="q7o2" class="option-label">B. responsible for</label>
+                        <input type="radio" name="quiz7" id="q7o3" value="C" class="option-input"><label for="q7o3" class="option-label">C. is responsible</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="7" data-answer="C">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-7"></div>
+                </div>
+            </div>
+
+            <!-- Slide 12: Bài luyện tập 2, Câu 3 -->
+            <div id="slide-11" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 12: Bài luyện tập 2</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The human brain is a marvel of biological engineering. It is composed of billions of neurons that communicate through electrical and chemical signals. The brain is organized into different regions, with each area responsible for specific functions. The cerebral cortex is a very important part of the brain that is responsible for thought and language, while the cerebellum is responsible for balance and movement. This complex organization allows the brain (3) ____ all our daily activities.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **3.** A. coordinating &emsp; B. to coordinate &emsp; C. coordinate
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 3.</p>
+                    <div id="quiz-8-options" class="mb-4">
+                        <input type="radio" name="quiz8" id="q8o1" value="A" class="option-input"><label for="q8o1" class="option-label">A. coordinating</label>
+                        <input type="radio" name="quiz8" id="q8o2" value="B" class="option-input"><label for="q8o2" class="option-label">B. to coordinate</label>
+                        <input type="radio" name="quiz8" id="q8o3" value="C" class="option-input"><label for="q8o3" class="option-label">C. coordinate</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="8" data-answer="B">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-8"></div>
+                </div>
+            </div>
+            
+            <!-- Slide 13: Bài luyện tập 2, Câu 4 -->
+            <div id="slide-12" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 13: Bài luyện tập 2</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The human brain is a marvel of biological engineering. It is composed of billions of neurons that communicate through electrical and chemical signals. The brain is organized into different regions, with each area responsible for specific functions. The cerebral cortex is a very important part of the brain that is responsible for thought and language, while the cerebellum is responsible for balance and movement. This complex organization allows the brain to coordinate all our daily activities. The most surprising thing about the brain is that it is capable (4) ____ new things throughout our lives.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **4.** A. learn &emsp; B. learning &emsp; C. of learning
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 4.</p>
+                    <div id="quiz-9-options" class="mb-4">
+                        <input type="radio" name="quiz9" id="q9o1" value="A" class="option-input"><label for="q9o1" class="option-label">A. learn</label>
+                        <input type="radio" name="quiz9" id="q9o2" value="B" class="option-input"><label for="q9o2" class="option-label">B. learning</label>
+                        <input type="radio" name="quiz9" id="q9o3" value="C" class="option-input"><label for="q9o3" class="option-label">C. of learning</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="9" data-answer="C">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-9"></div>
+                </div>
+            </div>
+
+            <!-- Slide 14: Bài luyện tập 3, Câu 1 -->
+            <div id="slide-13" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 14: Bài luyện tập 3</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        Global warming is a phenomenon that (1) ____ the Earth's climate system over a long period. It is primarily caused by human activities, especially the burning of fossil fuels, which increases greenhouse gas concentrations in the atmosphere.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **1.** A. is affected &emsp; B. affects &emsp; C. affect
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 1.</p>
+                    <div id="quiz-10-options" class="mb-4">
+                        <input type="radio" name="quiz10" id="q10o1" value="A" class="option-input"><label for="q10o1" class="option-label">A. is affected</label>
+                        <input type="radio" name="quiz10" id="q10o2" value="B" class="option-input"><label for="q10o2" class="option-label">B. affects</label>
+                        <input type="radio" name="quiz10" id="q10o3" value="C" class="option-input"><label for="q10o3" class="option-label">C. affect</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="10" data-answer="B">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-10"></div>
+                </div>
+            </div>
+
+            <!-- Slide 15: Bài luyện tập 3, Câu 2 -->
+            <div id="slide-14" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 15: Bài luyện tập 3</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        Global warming is a phenomenon that affects the Earth's climate system over a long period. It is primarily caused by human activities, especially the burning of fossil fuels, which increases greenhouse gas concentrations in the atmosphere. The consequences are far-reaching, (2) ____ rising sea levels, extreme weather events, and a loss of biodiversity.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **2.** A. include &emsp; B. includes &emsp; C. including
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 2.</p>
+                    <div id="quiz-11-options" class="mb-4">
+                        <input type="radio" name="quiz11" id="q11o1" value="A" class="option-input"><label for="q11o1" class="option-label">A. include</label>
+                        <input type="radio" name="quiz11" id="q11o2" value="B" class="option-input"><label for="q11o2" class="option-label">B. includes</label>
+                        <input type="radio" name="quiz11" id="q11o3" value="C" class="option-input"><label for="q11o3" class="option-label">C. including</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="11" data-answer="C">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-11"></div>
+                </div>
+            </div>
+
+            <!-- Slide 16: Bài luyện tập 3, Câu 3 -->
+            <div id="slide-15" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 16: Bài luyện tập 3</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        Global warming is a phenomenon that affects the Earth's climate system over a long period. It is primarily caused by human activities, especially the burning of fossil fuels, which increases greenhouse gas concentrations in the atmosphere. The consequences are far-reaching, including rising sea levels, extreme weather events, and a loss of biodiversity. Efforts to combat global warming (3) ____ a transition to renewable energy.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **3.** A. involves &emsp; B. involve &emsp; C. is involved
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 3.</p>
+                    <div id="quiz-12-options" class="mb-4">
+                        <input type="radio" name="quiz12" id="q12o1" value="A" class="option-input"><label for="q12o1" class="option-label">A. involves</label>
+                        <input type="radio" name="quiz12" id="q12o2" value="B" class="option-input"><label for="q12o2" class="option-label">B. involve</label>
+                        <input type="radio" name="quiz12" id="q12o3" value="C" class="option-input"><label for="q12o3" class="option-label">C. is involved</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="12" data-answer="B">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-12"></div>
+                </div>
+            </div>
+
+            <!-- Slide 17: Bài luyện tập 3, Câu 4 -->
+            <div id="slide-16" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 17: Bài luyện tập 3</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        Global warming is a phenomenon that affects the Earth's climate system over a long period. It is primarily caused by human activities, especially the burning of fossil fuels, which increases greenhouse gas concentrations in the atmosphere. The consequences are far-reaching, including rising sea levels, extreme weather events, and a loss of biodiversity. Efforts to combat global warming involve a transition to renewable energy and the implementation of international agreements, such (4) ____ the Paris Agreement.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **4.** A. as &emsp; B. like &emsp; C. as well as
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 4.</p>
+                    <div id="quiz-13-options" class="mb-4">
+                        <input type="radio" name="quiz13" id="q13o1" value="A" class="option-input"><label for="q13o1" class="option-label">A. as</label>
+                        <input type="radio" name="quiz13" id="q13o2" value="B" class="option-input"><label for="q13o2" class="option-label">B. like</label>
+                        <input type="radio" name="quiz13" id="q13o3" value="C" class="option-input"><label for="q13o3" class="option-label">C. as well as</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="13" data-answer="A">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-13"></div>
+                </div>
+            </div>
+
+            <!-- Slide 18: Bài luyện tập 4, Câu 1 -->
+            <div id="slide-17" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 18: Bài luyện tập 4</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The development of the internet has had a profound impact on global communication, allowing people from different parts of the world to connect (1) ____. This has led to a major increase in international trade and collaboration.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **1.** A. immediate &emsp; B. immediately &emsp; C. immediately to
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 1.</p>
+                    <div id="quiz-14-options" class="mb-4">
+                        <input type="radio" name="quiz14" id="q14o1" value="A" class="option-input"><label for="q14o1" class="option-label">A. immediate</label>
+                        <input type="radio" name="quiz14" id="q14o2" value="B" class="option-input"><label for="q14o2" class="option-label">B. immediately</label>
+                        <input type="radio" name="quiz14" id="q14o3" value="C" class="option-input"><label for="q14o3" class="option-label">C. immediately to</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="14" data-answer="B">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-14"></div>
+                </div>
+            </div>
+
+            <!-- Slide 19: Bài luyện tập 4, Câu 2 -->
+            <div id="slide-18" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 19: Bài luyện tập 4</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The development of the internet has had a profound impact on global communication, allowing people from different parts of the world to connect immediately. This has led to a major increase in international trade and collaboration. However, the rise of the internet has also raised (2) ____ about cyber security and data privacy.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **2.** A. concerned &emsp; B. concerns &emsp; C. concern
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 2.</p>
+                    <div id="quiz-15-options" class="mb-4">
+                        <input type="radio" name="quiz15" id="q15o1" value="A" class="option-input"><label for="q15o1" class="option-label">A. concerned</label>
+                        <input type="radio" name="quiz15" id="q15o2" value="B" class="option-input"><label for="q15o2" class="option-label">B. concerns</label>
+                        <input type="radio" name="quiz15" id="q15o3" value="C" class="option-input"><label for="q15o3" class="option-label">C. concern</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="15" data-answer="B">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-15"></div>
+                </div>
+            </div>
+            
+            <!-- Slide 20: Bài luyện tập 4, Câu 3 -->
+            <div id="slide-19" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 20: Bài luyện tập 4</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The development of the internet has had a profound impact on global communication, allowing people from different parts of the world to connect immediately. This has led to a major increase in international trade and collaboration. However, the rise of the internet has also raised concerns about cyber security and data privacy. It has also made some people feel more isolated from their local communities, as they (3) ____ more time online.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **3.** A. spend &emsp; B. spent &emsp; C. spending
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 3.</p>
+                    <div id="quiz-16-options" class="mb-4">
+                        <input type="radio" name="quiz16" id="q16o1" value="A" class="option-input"><label for="q16o1" class="option-label">A. spend</label>
+                        <input type="radio" name="quiz16" id="q16o2" value="B" class="option-input"><label for="q16o2" class="option-label">B. spent</label>
+                        <input type="radio" name="quiz16" id="q16o3" value="C" class="option-input"><label for="q16o3" class="option-label">C. spending</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="16" data-answer="A">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-16"></div>
+                </div>
+            </div>
+            
+            <!-- Slide 21: Bài luyện tập 4, Câu 4 -->
+            <div id="slide-20" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 21: Bài luyện tập 4</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The development of the internet has had a profound impact on global communication, allowing people from different parts of the world to connect immediately. This has led to a major increase in international trade and collaboration. However, the rise of the internet has also raised concerns about cyber security and data privacy. It has also made some people feel more isolated from their local communities, as they spend more time online. It is clear that while the benefits of the internet are undeniable, society continues to grapple with (4) ____ negative consequences.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **4.** A. its &emsp; B. their &emsp; C. a
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 4.</p>
+                    <div id="quiz-17-options" class="mb-4">
+                        <input type="radio" name="quiz17" id="q17o1" value="A" class="option-input"><label for="q17o1" class="option-label">A. its</label>
+                        <input type="radio" name="quiz17" id="q17o2" value="B" class="option-input"><label for="q17o2" class="option-label">B. their</label>
+                        <input type="radio" name="quiz17" id="q17o3" value="C" class="option-input"><label for="q17o3" class="option-label">C. a</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="17" data-answer="A">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-17"></div>
+                </div>
+            </div>
+
+            <!-- Slide 22: Bài luyện tập 5, Câu 1 -->
+            <div id="slide-21" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 22: Bài luyện tập 5</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The Rosetta Stone is a granite slab that was (1) ____ in 1799 by French soldiers in Egypt. The stone is inscribed with three versions of a decree issued in 196 BC during the Ptolemaic dynasty.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **1.** A. discovered &emsp; B. discover &emsp; C. discovering
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 1.</p>
+                    <div id="quiz-18-options" class="mb-4">
+                        <input type="radio" name="quiz18" id="q18o1" value="A" class="option-input"><label for="q18o1" class="option-label">A. discovered</label>
+                        <input type="radio" name="quiz18" id="q18o2" value="B" class="option-input"><label for="q18o2" class="option-label">B. discover</label>
+                        <input type="radio" name="quiz18" id="q18o3" value="C" class="option-input"><label for="q18o3" class="option-label">C. discovering</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="18" data-answer="A">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-18"></div>
+                </div>
+            </div>
+
+            <!-- Slide 23: Bài luyện tập 5, Câu 2 -->
+            <div id="slide-22" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 23: Bài luyện tập 5</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The Rosetta Stone is a granite slab that was discovered in 1799 by French soldiers in Egypt. The stone is inscribed with three versions of a decree issued in 196 BC during the Ptolemaic dynasty. The top and middle texts are in ancient Egyptian hieroglyphic and Demotic scripts, while the bottom text is in ancient Greek. The existence of the Greek text allowed scholars to (2) ____ the hieroglyphs for the first time.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **2.** A. deciphering &emsp; B. to decipher &emsp; C. decipher
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 2.</p>
+                    <div id="quiz-19-options" class="mb-4">
+                        <input type="radio" name="quiz19" id="q19o1" value="A" class="option-input"><label for="q19o1" class="option-label">A. deciphering</label>
+                        <input type="radio" name="quiz19" id="q19o2" value="B" class="option-input"><label for="q19o2" class="option-label">B. to decipher</label>
+                        <input type="radio" name="quiz19" id="q19o3" value="C" class="option-input"><label for="q19o3" class="option-label">C. decipher</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="19" data-answer="C">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-19"></div>
+                </div>
+            </div>
+
+            <!-- Slide 24: Bài luyện tập 5, Câu 3 -->
+            <div id="slide-23" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 24: Bài luyện tập 5</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The Rosetta Stone is a granite slab that was discovered in 1799 by French soldiers in Egypt. The stone is inscribed with three versions of a decree issued in 196 BC during the Ptolemaic dynasty. The top and middle texts are in ancient Egyptian hieroglyphic and Demotic scripts, while the bottom text is in ancient Greek. The existence of the Greek text allowed scholars to decipher the hieroglyphs for the first time. It is considered one of the most important archaeological (3) ____ in history.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **3.** A. discover &emsp; B. discovered &emsp; C. discoveries
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 3.</p>
+                    <div id="quiz-20-options" class="mb-4">
+                        <input type="radio" name="quiz20" id="q20o1" value="A" class="option-input"><label for="q20o1" class="option-label">A. discover</label>
+                        <input type="radio" name="quiz20" id="q20o2" value="B" class="option-input"><label for="q20o2" class="option-label">B. discovered</label>
+                        <input type="radio" name="quiz20" id="q20o3" value="C" class="option-input"><label for="q20o3" class="option-label">C. discoveries</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="20" data-answer="C">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-20"></div>
+                </div>
+            </div>
+            
+            <!-- Slide 25: Bài luyện tập 5, Câu 4 -->
+            <div id="slide-24" class="lesson-slide hidden">
+                <h2 class="slide-title">Slide 25: Bài luyện tập 5</h2>
+                <p class="slide-content font-bold text-blue-800">Đoạn văn:</p>
+                <div class="interactive-section mt-4 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p>
+                        The Rosetta Stone is a granite slab that was discovered in 1799 by French soldiers in Egypt. The stone is inscribed with three versions of a decree issued in 196 BC during the Ptolemaic dynasty. The top and middle texts are in ancient Egyptian hieroglyphic and Demotic scripts, while the bottom text is in ancient Greek. The existence of the Greek text allowed scholars to decipher the hieroglyphs for the first time. It is considered one of the most important archaeological discoveries in history and is now on display (4) ____ the British Museum in London.
+                    </p>
+                    <p class="mt-4 font-semibold">
+                        **4.** A. in &emsp; B. at &emsp; C. on
+                    </p>
+                </div>
+                <div class="interactive-section mt-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                    <p class="font-semibold text-blue-800 mb-4">Câu hỏi: Chọn đáp án đúng cho câu 4.</p>
+                    <div id="quiz-21-options" class="mb-4">
+                        <input type="radio" name="quiz21" id="q21o1" value="A" class="option-input"><label for="q21o1" class="option-label">A. in</label>
+                        <input type="radio" name="quiz21" id="q21o2" value="B" class="option-input"><label for="q21o2" class="option-label">B. at</label>
+                        <input type="radio" name="quiz21" id="q21o3" value="C" class="option-input"><label for="q21o3" class="option-label">C. on</label>
+                    </div>
+                    <div class="flex justify-center gap-4">
+                        <button class="button quiz-check-button" data-quiz-id="21" data-answer="B">Kiểm Tra</button>
+                    </div>
+                    <div class="feedback-message hidden" id="feedback-21"></div>
+                </div>
+            </div>
+
+            <!-- Final Screen -->
+            <div id="final-screen" class="lesson-slide hidden">
+                <h2 class="slide-title">Hoàn Thành Bài Giảng!</h2>
+                <p class="final-message">🎉 Chúc mừng! Bạn đã hoàn thành 25 slides về chiến lược bài đọc điền từ.</p>
+                <button id="restart-lesson-button" class="button restart-button w-full mt-8">Luyện tập lại</button>
+            </div>
+        </div>
+
+        <div class="flex justify-between items-center mt-8">
+            <button id="prev-slide-button" class="button lesson-nav-button" disabled>Slide Trước</button>
+            <span id="slide-indicator" class="text-lg font-semibold text-gray-700">Slide 1 / 25</span>
+            <button id="next-slide-button" class="button lesson-nav-button">Slide Tiếp Theo</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.lesson-slide');
+        const prevButton = document.getElementById('prev-slide-button');
+        const nextButton = document.getElementById('next-slide-button');
+        const slideIndicator = document.getElementById('slide-indicator');
+        const restartLessonButton = document.getElementById('restart-lesson-button');
+        const totalLessonSlides = slides.length - 1;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.add('hidden');
+                if (i === index) {
+                    slide.classList.remove('hidden');
+                }
+            });
+
+            prevButton.disabled = (index === 0);
+            
+            if (index < totalLessonSlides) {
+                nextButton.classList.remove('hidden');
+            } else {
+                nextButton.classList.add('hidden');
+            }
+
+            if (index < totalLessonSlides) {
+                slideIndicator.textContent = `Slide ${index + 1} / ${totalLessonSlides}`;
+            } else {
+                slideIndicator.textContent = `Hoàn thành!`;
+            }
+        }
+
+        prevButton.addEventListener('click', () => {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                showSlide(currentSlideIndex);
+            }
+        });
+
+        nextButton.addEventListener('click', () => {
+            if (currentSlideIndex < totalLessonSlides) {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            }
+        });
+
+        restartLessonButton.addEventListener('click', () => {
+            currentSlideIndex = 0;
+            showSlide(currentSlideIndex);
+            document.querySelectorAll('.interactive-section input').forEach(input => {
+                input.disabled = false;
+                input.checked = false;
+            });
+            document.querySelectorAll('.feedback-message').forEach(feedback => {
+                feedback.classList.add('hidden');
+                feedback.textContent = '';
+                feedback.classList.remove('feedback-correct', 'feedback-incorrect');
+            });
+            document.querySelectorAll('.quiz-check-button').forEach(button => {
+                button.disabled = true;
+                button.classList.remove('hidden');
+            });
+        });
+
+        document.querySelectorAll('.quiz-check-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                const quizId = e.target.dataset.quizId;
+                const correctAnswer = e.target.dataset.answer;
+                const feedbackDiv = document.getElementById(`feedback-${quizId}`);
+                const selectedOption = document.querySelector(`input[name="quiz${quizId}"]:checked`);
+                
+                feedbackDiv.classList.remove('hidden', 'feedback-correct', 'feedback-incorrect');
+                
+                if (selectedOption && selectedOption.value === correctAnswer) {
+                    feedbackDiv.classList.add('feedback-correct');
+                    feedbackDiv.textContent = 'Chính xác! 🎉';
+                    
+                    e.target.disabled = true;
+                    setTimeout(() => {
+                        currentSlideIndex++;
+                        showSlide(currentSlideIndex);
+                    }, 1500);
+                } else {
+                    feedbackDiv.classList.add('feedback-incorrect');
+                    feedbackDiv.textContent = 'Chưa đúng, hãy thử lại!';
+                }
+            });
+        });
+
+        document.querySelectorAll('.interactive-section input[type="radio"]').forEach(input => {
+            input.addEventListener('change', (e) => {
+                const quizId = e.target.name.replace('quiz', '');
+                const checkButton = document.querySelector(`.quiz-check-button[data-quiz-id="${quizId}"]`);
+                if (checkButton) {
+                    checkButton.disabled = false;
+                }
+            });
+        });
+
+        document.querySelectorAll('.quiz-check-button').forEach(button => {
+            button.disabled = true;
+        });
+
+        showSlide(currentSlideIndex);
+    </script>
+</body>
+</html>
